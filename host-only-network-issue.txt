@@ -1,0 +1,15 @@
+$ ip addr show vboxnet0
+3: vboxnet0: <BROADCAST,MULTICAST> mtu 1500 qdisc noop state DOWN group default qlen 1000
+    link/ether 0a:00:27:00:00:00 brd ff:ff:ff:ff:ff:ff
+# trying to up
+$ sudo ip link set vboxnet0 up
+
+$ ip addr show vboxnet0
+3: vboxnet0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP group default qlen 1000
+    link/ether 0a:00:27:00:00:00 brd ff:ff:ff:ff:ff:ff
+    inet6 fe80::800:27ff:fe00:0/64 scope link
+       valid_lft forever preferred_lft forever
+# only ipv6 ip address shows up!! So, set an ipv4 address, manually
+$ sudo ip addr add 192.168.65.1/24 dev vboxnet0
+
+# could access to http://m1.dcos finally!!

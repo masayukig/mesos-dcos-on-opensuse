@@ -1,0 +1,234 @@
+\documentclass[aspectratio=169,11pt,hyperref={colorlinks=true}]{beamer}
+% https://github.com/zr-tex8r/BXcjkjatype/blob/master/README-ja.md
+\usepackage[whole]{bxcjkjatype}
+\usetheme{boxes}
+\setbeamertemplate{navigation symbols}{}
+\definecolor{suse}{RGB}{2, 211, 95}
+\setbeamercolor{titlelike}{fg=suse}
+\setbeamercolor{structure}{fg=suse}
+\hypersetup{colorlinks,urlcolor=suse}
+\setbeamertemplate{footline}[frame number]
+% Inserting graphics
+\usepackage{graphicx}
+% Side-by-side figures, etc
+\usepackage{subfigure}
+% Code snippits
+\usepackage{listings}
+% Color stuff
+\usepackage{color}
+% underline
+\usepackage{soul}
+
+\usepackage{amsmath}
+\usepackage{tikz}
+\newcommand\RBox[1]{%
+  \tikz\node[draw,rounded corners,align=center,] {#1};%
+}
+\usepackage{hyperref}
+%\usecolortheme{buzz}
+%\usecolortheme{wolverine}
+%\usetheme{Boadilla}
+\usepackage[T1]{fontenc}
+%\usepackage{fontspec}
+%\setmainsfont{hiragino-elcapitan}
+%\usepackage[expert, deluxe]{otf}
+
+\definecolor{mygreen}{rgb}{0,0.6,0}
+\definecolor{mygray}{rgb}{0.5,0.5,0.5}
+\definecolor{mymauve}{rgb}{0.58,0,0.82}
+
+
+%\usepackage{CJK}
+%\pdfmapline{=genshingothic@Unicode@ <genshingothic.ttf}
+% bxcjkjatype
+%\setgothicfont[<ID>]{<フォントファイル名>}
+%\setgothicfont{/Users/foo/Library/Fonts/genshingothic.ttf}
+%\setgothicfont{/Users/foo/Library/Fonts/NotoSansCJKjp-Regular.otf}
+%\setgothicfont{/Users/foo/Downloads/genshingothic-20150607/GenShinGothic-P-Normal.ttf}
+%\setgothicfont{/Users/foo/Downloads/genshingothic-20150607/GenShinGothic-Regular.ttf}
+%\setgothicfont{hiragino.ttc}
+\setgothicfont{mplus-1p-regular.ttf}
+\setCJKfamilydefault{\gtdefault}
+%\setCJKfamilydefault{\mcdefault}
+%\CJKforce{abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ}
+
+
+\lstset{%
+  backgroundcolor=\color{white},   % choose the background color; you must add \usepackage{color} or \usepackage{xcolor}
+  breakatwhitespace=false,         % sets if automatic breaks should only happen at whitespace
+  breaklines=true,                 % sets automatic line breaking
+  captionpos=b,                    % sets the caption-position to bottom
+  commentstyle=\color{suse},  % comment style
+  extendedchars=true,              % lets you use non-ASCII characters; for 8-bits encodings only, does not work with UTF-8
+  keepspaces=true,                 % keeps spaces in text, useful for keeping indentation of code (possibly needs columns=flexible)
+  keywordstyle=\color{blue},       % keyword style
+%  otherkeywords={*,...},           % if you want to add more keywords to the set
+  numbersep=5pt,                   % how far the line-numbers are from the code
+  numberstyle=\tiny\color{mygray}, % the style that is used for the line-numbers
+  rulecolor=\color{black},         % if not set, the frame-color may be changed on line-breaks within not-black text (e.g. comments (green here))
+  showspaces=false,                % show spaces everywhere adding particular underscores; it overrides 'showstringspaces'
+  showstringspaces=false,          % underline spaces within strings only
+  showtabs=false,                  % show tabs within strings adding particular underscores
+  stringstyle=\color{suse},   % string literal style
+}
+
+\setbeamerfont{caption}{series=\normalfont,size=\fontsize{6}{8}}
+%\setbeamerfont{caption}{series=\normalfont,size=\large}
+\setbeamertemplate{caption}{\raggedright\insertcaption\par}
+
+\setlength{\abovecaptionskip}{0pt}
+\setlength{\floatsep}{0pt}
+
+\author[Masayuki Igawa]{%
+  \texorpdfstring{%
+    \centering
+    Masayuki Igawa\\
+    \href{mailto:masayuki@igawa.io}{masayuki@igawa.io}\\
+    \texttt{masayukig on Freenode,
+     \href{https://twitter.com/masayukig}{Twitter},
+     \href{https://github.com/masayukig}{GitHub}}
+  }
+  {Masayuki Igawa}
+}
+\date{May 30, 2017}
+
+\title[Mesos, DC/OS on openSUSE
+\hspace{2em}\insertframenumber/\inserttotalframenumber]{Mesos, DC/OS on openSUSE}
+
+\begin{document}
+%\begin{CJK*}{UTF8}{hiragino-elcapitan}
+%\begin{CJK*}{UTF8}{genshingothic}
+
+
+{%
+% \setbeamertemplate{background canvas}{\includegraphics[width=\paperwidth,height=\paperheight]{background_title.png}}
+\setbeamertemplate{footline}{}
+\begin{frame}[noframenumbering]
+  \setbeamercolor{titlelike}{fg=black}
+  \setbeamercolor{structure}{fg=black}
+  \setbeamercolor{normal text}{fg=black}
+  \hypersetup{colorlinks,urlcolor=black}
+  \setbeamercolor{author}{fg=black}
+  \setbeamercolor{date}{fg=black}
+  \setbeamercolor{background}{bg=suse}
+  \titlepage{}
+  \centering
+  \href{https://github.com/masayukig/mesos-dcos-on-opensuse}{github.com/masayukig/mesos-dcos-on-opensuse}
+\end{frame}
+}
+
+% \section{Agenda}
+% \begin{frame}
+%   \frametitle{Agenda}
+%   \begin{itemize}
+%     \item 自己紹介
+%     \item やりたいこと
+%     \item やってみた
+%     \item どうなった？（困ったこと）
+%     \item 解決方法
+%     \item まとめ
+%   \end{itemize}
+% \end{frame}
+
+\section{Introduction}
+\begin{frame}
+  \frametitle{自己紹介}
+  \begin{itemize}
+    \item 所属企業：HPE -> SUSE/ノベル株式会社
+      \begin{itemize}
+        \item QE(Quality Engineering)チーム所属
+        \item チームメンバー日本人は私だけ。日本にいるのも私だけ!
+        \item \href{http://www.geekwire.com/2016/struggling-keep-pace-cloud-hewlett-packard-enterprise-cuts-staff/}{GeekWire post}
+        \item \href{https://www.hpe.com/us/en/newsroom/news-archive/statement/2016/11/HPE-Partners-with-SUSE-to-Provide-Best-in-Class-Hybrid-Cloud-Offerings.html}{HPE Partners with SUSE to Provide Best-in-Class Hybrid Cloud Offerings}
+      \end{itemize}
+    \item 業務活動内容: OpenStack QA 領域でアップストリームを通じた開発
+      \begin{itemize}
+        \item Tempest, OpenStack-Health, Subunit2SQL, Stackviz等のコアメンバ (≒ コミッタ?)
+        \item \href{http://stackalytics.com/?user_id=igawa&release=all&metric=all}{stackalytics.com/?user\_id=igawa}
+      \end{itemize}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{やりたいこと}
+  \begin{itemize}
+    \item DC/OSってなに？手元のマシンで使ってみたい！
+    \item Mac -> openSUSE(Linux)
+    \item Vagrant, OpenStack, etc.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{やってみた}
+  \begin{itemize}
+    \item openSUSE(Tumbleweed) インストール
+    \item VirtualBox インストール
+    \item Vagrant インストール
+    \item DC/OS インストール
+    \item 起動!
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{どうなった？: openSUSE(Tumbleweed) インストール}
+  \begin{itemize}
+    \item openSUSE Tumbleweed って何？ % https://www.opensuse.org/#Tumbleweed の絵を入れる
+    \item USB メモリなんて持ってない % USBメモリの写真を入れる
+    \item 容量足りない
+    \item ブートしない % ブートしない写真を入れる
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{どうなった？: VirtualBox/Vagrant インストール}
+  それぞれの公式サイト(VirtualBox/Vagrant)に Tumbleweed 用のパッケージなし...
+  \begin{itemize}
+    \item VirtualBox: \lstinline[basicstyle=\ttfamily\footnotesize,columns=fixed]{zypper install virtualbox}
+    \item Vagrant: \lstinline[basicstyle=\ttfamily\footnotesize,columns=fixed]{zypper install vagrant}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{どうなった？: DC/OS インストール}
+  \begin{itemize}
+    \item \href{https://dcos.io/docs/1.9/installing/local/}{Install DC/OS with Vagrant} に従い、\href{https://github.com/dcos/dcos-vagrant/}{master branch} を使用
+    \begin{itemize}
+      \item \lstinline[basicstyle=\ttfamily\footnotesize,columns=fixed]{cp VagrantConfig-1m-1a-1p.yaml VagrantConfig.yaml}
+      \item \lstinline[basicstyle=\ttfamily\footnotesize,columns=fixed]{vagrant up}
+    \end{itemize}
+    \item すんなりインストールが進んで、4つのVMが起動した！
+    \item 自動テスト(？)も通ったっぽい ！
+    \item \url{http://m1.dcos} にアクセス！ → つながらない・・
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{解決: DC/OS インストール}
+  \begin{itemize}
+    \item Host-only Networks issue
+      \lstinputlisting[basicstyle=\ttfamily\footnotesize,frame=single,language=bash]{host-only-network-issue.txt}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{DC/OS on Vagrant on VirtualBox on openSUSE 起動\!}
+    \begin{center}
+      \includegraphics[width=.7\textwidth]{dcos_vms.png}
+    \end{center}
+\end{frame}
+
+\subsection{More Information}
+\begin{frame}
+\frametitle{Where to get more information}
+  \begin{itemize}
+    \item \url{https://www.opensuse.org/\#Tumbleweed}
+    \item \url{https://www.virtualbox.org/}
+    \item \url{https://www.vagrantup.com/}
+    \item \url{https://dcos.io/docs/1.9/installing/local/}
+    \item \url{https://github.com/dcos/dcos-vagrant/}
+  \end{itemize}
+\end{frame}
+
+%\end{CJK*}{UTF8}{hiragino-elcapitan}
+%\end{CJK*}{UTF8}{genshingothic}
+\end{document}

@@ -1,8 +1,6 @@
-======================================
-OpenStack Upstream開発におけるCI品質向上施策
-======================================
-
-Original repository: https://github.com/mtreinish/openstack-health-presentation
+=========================================
+Mesos, DC/OS on openSUSE つかってみた
+=========================================
 
 Built with beamer latex
 
@@ -10,9 +8,9 @@ Install texlive with most of the plugins via your distro
 
 to build just run::
 
-  % pdflatex better_testing_through_statistics.tex
+  % pdflatex mesos-dcos-on-opensuse.tex
 
-the output will be better_testing_through_statistics.pdf
+the output will be mesos-dcos-on-opensuse.pdf
 
 
 ====
