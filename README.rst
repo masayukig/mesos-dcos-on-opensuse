@@ -1,6 +1,6 @@
-=================================
-Better Testing Through Statistics
-=================================
+======================================
+OpenStack Upstream開発におけるCI品質向上施策
+======================================
 
 Original repository: https://github.com/mtreinish/openstack-health-presentation
 
@@ -13,3 +13,12 @@ to build just run::
   % pdflatex better_testing_through_statistics.tex
 
 the output will be better_testing_through_statistics.pdf
+
+
+====
+Font
+====
+
+* M+ Type-1 Regular
+  http://mplus-fonts.osdn.jp/design.html#mplus_1
+  License: http://mplus-fonts.osdn.jp/about.html#license
