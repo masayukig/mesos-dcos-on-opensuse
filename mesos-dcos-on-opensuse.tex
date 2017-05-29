@@ -31,7 +31,6 @@
 %\usetheme{Boadilla}
 \usepackage[T1]{fontenc}
 %\usepackage{fontspec}
-%\setmainsfont{hiragino-elcapitan}
 %\usepackage[expert, deluxe]{otf}
 
 \definecolor{mygreen}{rgb}{0,0.6,0}
@@ -85,13 +84,15 @@
     \centering
     Masayuki Igawa\\
     \href{mailto:masayuki@igawa.io}{masayuki@igawa.io}\\
-    \texttt{masayukig on Freenode,
+    \texttt{masayukig on \href{http://freenode.net/}{Freenode},
      \href{https://twitter.com/masayukig}{Twitter},
      \href{https://github.com/masayukig}{GitHub}}
   }
   {Masayuki Igawa}
 }
 \date{May 30, 2017}
+\def\place#1{\def\@place{#1}}
+\place{\href{https://mesos.connpass.com/event/57331/}{@Mesos Meetup Tokyo \#1}}
 
 \title[Mesos, DC/OS on openSUSE
 \hspace{2em}\insertframenumber/\inserttotalframenumber]{Mesos, DC/OS on openSUSE}
@@ -101,9 +102,6 @@
 \setbeamercolor{structure}{fg=white}
 \setbeamercolor{normal text}{fg=white}
 \begin{document}
-%\begin{CJK*}{UTF8}{hiragino-elcapitan}
-%\begin{CJK*}{UTF8}{genshingothic}
-
 
 {%
 % \setbeamertemplate{background canvas}{\includegraphics[width=\paperwidth,height=\paperheight]{background_title.png}}
@@ -113,8 +111,10 @@
   \hypersetup{colorlinks,urlcolor=suse}
   \setbeamercolor{author}{fg=white}
   \setbeamercolor{date}{fg=white}
+  \setbeamercolor{place}{fg=white}
   \titlepage{}
   \centering
+  \@place \par
   \href{https://github.com/masayukig/mesos-dcos-on-opensuse}{github.com/masayukig/mesos-dcos-on-opensuse}
 \end{frame}
 }
@@ -136,12 +136,10 @@
 \begin{frame}
   \frametitle{自己紹介}
   \begin{itemize}
-    \item 所属企業：HPE -> SUSE/ノベル株式会社
+    \item 所属企業：SUSE/ノベル株式会社
       \begin{itemize}
-        \item QE(Quality Engineering)チーム所属
-        \item チームメンバー日本人は私だけ。日本にいるのも私だけ!
-        \item \href{http://www.geekwire.com/2016/struggling-keep-pace-cloud-hewlett-packard-enterprise-cuts-staff/}{GeekWire post}
-        \item \href{https://www.hpe.com/us/en/newsroom/news-archive/statement/2016/11/HPE-Partners-with-SUSE-to-Provide-Best-in-Class-Hybrid-Cloud-Offerings.html}{HPE Partners with SUSE to Provide Best-in-Class Hybrid Cloud Offerings}
+        \item QE(Quality Engineering)チーム所属(チームメンバー日本人は私だけ。日本にいるのも私だけ)
+        \item \href{https://www.suse.com/newsroom/post/2016/suse-acquires-openstack-iaas-and-cloud-foundry-paas-talent-and-technology-assets-from-hpe-to-accelerate-growth-and-entry-into-new-markets/}{SUSE Acquires OpenStack IaaS and Cloud Foundry PaaS Talent and Technology Assets from HPE to Accelerate Growth and Entry into New Markets}
       \end{itemize}
     \item 業務活動内容: OpenStack QA 領域でアップストリームを通じた開発
       \begin{itemize}
@@ -153,17 +151,32 @@
 
 \begin{frame}
   \frametitle{やりたいこと}
-  \begin{itemize}
-    \item DC/OSってなに？手元のマシンで使ってみたい！
-    \item Mac -> openSUSE(Linux)
-    \item Vagrant, OpenStack, etc.
-  \end{itemize}
+  \begin{columns}[T]
+    \begin{column}{.7\textwidth}
+      \begin{itemize}
+        \item DC/OSってなに？手元のマシンで使ってみたい！
+        \item Mac → \href{https://ja.wikipedia.org/wiki/OpenSUSE}{openSUSE(Linux)}
+          \begin{itemize}
+            \item Dell Precision 5510 (Ubuntu pre-installed)
+            \begin{itemize}
+              \item[CPU:] Corei7@2.70GHz
+              \item[Mem:] 32GB
+              \item[HDD:] 500GB(SSD) + 1TB(HDD)
+            \end{itemize}
+          \end{itemize}
+        \item Vagrant, OpenStack, etc.
+      \end{itemize}
+    \end{column}
+    \begin{column}{.4\textwidth}
+      \includegraphics[width=1.0\textwidth]{dell_precision_5510.jpg}
+    \end{column}
+  \end{columns}
 \end{frame}
 
 \begin{frame}
   \frametitle{やってみた}
   \begin{itemize}
-    \item openSUSE(Tumbleweed) インストール
+    \item \href{https://en.opensuse.org/Portal:Tumbleweed}{openSUSE(Tumbleweed)} インストール
     \item VirtualBox インストール
     \item Vagrant インストール
     \item DC/OS インストール
@@ -173,12 +186,36 @@
 
 \begin{frame}
   \frametitle{どうなった？: openSUSE(Tumbleweed) インストール}
-  \begin{itemize}
-    \item openSUSE Tumbleweed って何？ % https://www.opensuse.org/#Tumbleweed の絵を入れる
-    \item USB メモリなんて持ってない % USBメモリの写真を入れる
-    \item 容量足りない
-    \item ブートしない % ブートしない写真を入れる
-  \end{itemize}
+  \begin{columns}[T]
+    \begin{column}{.45\textwidth}
+      \begin{itemize}
+        \item \href{https://www.opensuse.org/}{openSUSE} \href{https://www.opensuse.org/\#Tumbleweed}{Tumbleweed} ？
+        \item USB メモリなんて持ってない
+        \item 容量足りない
+        \item ブートしない
+      \end{itemize}
+    \end{column}
+    \begin{column}{0.28\textwidth}
+      \begin{figure}
+        \begin{center}
+          \caption{Tumbleweed? (Photo by \href{https://www.flickr.com/photos/jezarnold/}{jezarnold})}
+          \includegraphics[width=1.0\textwidth]{tumbleweed.jpg}
+        \end{center}
+        \begin{center}
+          \caption{USEメモリ(4GB)}
+          \includegraphics[width=1.0\textwidth]{suse_usb.jpg}
+        \end{center}
+      \end{figure}
+    \end{column}
+    \begin{column}{0.28\textwidth}
+      \begin{figure}
+        \begin{center}
+          \caption{Boot error}
+          \includegraphics[width=1.0\textwidth]{boot.jpg}
+        \end{center}
+      \end{figure}
+    \end{column}
+  \end{columns}
 \end{frame}
 
 \begin{frame}
@@ -198,9 +235,9 @@
       \item \lstinline[basicstyle=\ttfamily\footnotesize,columns=fixed]{cp VagrantConfig-1m-1a-1p.yaml VagrantConfig.yaml}
       \item \lstinline[basicstyle=\ttfamily\footnotesize,columns=fixed]{vagrant up}
     \end{itemize}
-    \item すんなりインストールが進んで、4つのVMが起動した！
+    \item すんなりインストールが進だ！4つのVMが起動した！
     \item 自動テスト(？)も通ったっぽい ！
-    \item \url{http://m1.dcos} にアクセス！ → つながらない・・
+    \item \url{http://m1.dcos} にアクセス！ → つながらない・・orz
   \end{itemize}
 \end{frame}
 
@@ -208,15 +245,34 @@
   \frametitle{解決: DC/OS インストール}
   \begin{itemize}
     \item Host-only Networks issue
-      \lstinputlisting[basicstyle=\ttfamily\footnotesize,frame=single,language=bash]{host-only-network-issue.txt}
+      \lstinputlisting[basicstyle=\ttfamily\footnotesize,frame=single,language=ruby]{host-only-network-issue.txt}
   \end{itemize}
 \end{frame}
 
 \begin{frame}
   \frametitle{DC/OS on Vagrant on VirtualBox on openSUSE 起動\!}
-    \begin{center}
-      \includegraphics[width=.7\textwidth]{dcos_vms.png}
-    \end{center}
+  \begin{columns}[T]
+    \begin{column}{.50\textwidth}
+      \begin{center}
+        \includegraphics[width=1.0\textwidth]{dcos_vms.png}
+      \end{center}
+    \end{column}
+    \begin{column}{.50\textwidth}
+      \begin{center}
+        \includegraphics[width=1.0\textwidth]{DCOS_firefox.png}
+      \end{center}
+    \end{column}
+  \end{columns}
+\end{frame}
+
+\subsection{Conclusion}
+\begin{frame}
+\frametitle{まとめ}
+  \begin{itemize}
+    \item openSUSE でも Mesos, DC/OS 使えるよ
+    \item いろいろつまづくことがあるよ(Network...)
+    \item 本番はこれから → 複数マシン・VMを管理したいよ
+  \end{itemize}
 \end{frame}
 
 \subsection{More Information}
@@ -231,6 +287,4 @@
   \end{itemize}
 \end{frame}
 
-%\end{CJK*}{UTF8}{hiragino-elcapitan}
-%\end{CJK*}{UTF8}{genshingothic}
 \end{document}
