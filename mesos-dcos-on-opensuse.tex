@@ -135,19 +135,31 @@
 \section{Introduction}
 \begin{frame}
   \frametitle{自己紹介}
-  \begin{itemize}
-    \item 所属企業：SUSE/ノベル株式会社
+  \begin{columns}[T]
+    \begin{column}{.5\textwidth}
       \begin{itemize}
-        \item QE(Quality Engineering)チーム所属
-        \item[] (日本人は私だけ。日本にいるのも私だけ...)
-        \item \href{https://www.suse.com/newsroom/post/2016/suse-acquires-openstack-iaas-and-cloud-foundry-paas-talent-and-technology-assets-from-hpe-to-accelerate-growth-and-entry-into-new-markets/}{SUSE Acquires OpenStack IaaS and Cloud Foundry PaaS Talent and Technology Assets from HPE to Accelerate Growth and Entry into New Markets}
+        \item 所属企業：SUSE/ノベル株式会社
+          \begin{itemize}
+            \item QE(Quality Engineering)チーム所属
+            \item[] (日本にいるのは私だけ)
+            \item \href{https://www.suse.com/newsroom/post/2016/suse-acquires-openstack-iaas-and-cloud-foundry-paas-talent-and-technology-assets-from-hpe-to-accelerate-growth-and-entry-into-new-markets/}{SUSE Acquires OpenStack IaaS and Cloud Foundry PaaS Talent and Technology Assets from HPE to Accelerate Growth and Entry into New Markets}
+          \end{itemize}
+        \item 業務: オープンソースプログラマ
+          \begin{itemize}
+            \item \href{https://www.openstack.org/}{OpenStack}
+             \href{https://wiki.openstack.org/wiki/QA}{QA} 領域でアップストリームを通じた開発：
+             \href{https://docs.openstack.org/developer/tempest/}{Tempest},
+             \href{http://status.openstack.org/openstack-health/}{OpenStack-Health},
+             \href{https://docs.openstack.org/developer/subunit2sql/}{Subunit2SQL},
+             \href{https://docs.openstack.org/developer/stackviz/}{Stackviz}等のコアレビューア
+            \item \href{http://stackalytics.com/?user_id=igawa&release=all&metric=all}{stackalytics.com/?user\_id=igawa}
+          \end{itemize}
       \end{itemize}
-    \item 業務活動内容: OpenStack QA 領域でアップストリームを通じた開発
-      \begin{itemize}
-        \item Tempest, OpenStack-Health, Subunit2SQL, Stackviz等のコアメンバ (≒ コミッタ?)
-        \item \href{http://stackalytics.com/?user_id=igawa&release=all&metric=all}{stackalytics.com/?user\_id=igawa}
-      \end{itemize}
-  \end{itemize}
+    \end{column}
+    \begin{column}{.5\textwidth}
+      \includegraphics[width=1.0\textwidth]{suse-t-shirts.jpg}
+    \end{column}
+  \end{columns}
 \end{frame}
 
 \begin{frame}
@@ -181,7 +193,7 @@
     \item \href{https://en.opensuse.org/Portal:Tumbleweed}{openSUSE(Tumbleweed)} インストール
     \item VirtualBox インストール
     \item Vagrant インストール
-    \item DC/OS インストール
+    \item Mesos, DC/OS インストール
     \item 起動!
   \end{itemize}
 \end{frame}
@@ -238,8 +250,8 @@
       \item \lstinline[basicstyle=\ttfamily\footnotesize,columns=fixed]{vagrant up}
     \end{itemize}
     \item すんなりインストールが進だ！4つのVMが起動した！
-    \item 自動テスト(？)も通ったっぽい ！
-    \item \url{http://m1.dcos} にアクセス！ → つながらない・・orz
+    \item 自動テスト(？)も通った!(っぽい)
+    \item \url{http://m1.dcos} にアクセス！ → つながらない・・ orz
   \end{itemize}
 \end{frame}
 
